@@ -1,0 +1,28 @@
+{% extends 'socialnetwork/base.html' %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data" action="{% url 'edit_profile' %}">
+    {% csrf_token %}
+    <div id="id_page_name" style="text-align: center; font-size: x-large">Profile Page for {{ form.first_name }} {{ form.last_name }}</div>
+    <p style="text-align: center">
+
+    <img id="id_user_picture" src="{% url 'get_photo' user.id %}" alt="user picture" style="width: 200px; height: 200px">
+
+
+    </p>
+
+    <div>
+    <input id="id_bio_input_text" style="width: 400px; height: 50px; font-size: large" name="bio_input" value="{{ form.bio }}"><br><br>
+    </div>
+    <label for="id_profile_picture">Profile Picture:</label>
+    <input id="id_profile_picture" type="file" style="width: 200px; height: 40px; border-radius: 10px; background-color: lightskyblue; font-size: medium" name="choosefile"><br>
+    <button id="id_update_profile_button" type="submit" style="width: 70px; height: 40px; border-radius: 10px; background-color: lightskyblue">Submit</button>
+<br><br>
+    <label class="list">You are following: </label><br>
+            {% for ff in form.followers.all %}
+    <div class="list">
+    <a id="id_profile_link_{{ ff.username }}"  href="{% url 'view_profile' ff.id %}">{{ ff.first_name }} {{ ff.last_name }}</a><br>
+    </div>
+                {% endfor %}
+    </form>
+{% endblock %}

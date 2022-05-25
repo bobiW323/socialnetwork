@@ -1,0 +1,44 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block content %}
+    <form action="{% url 'view_profile' user.id %}" method="get">
+    {% csrf_token %}
+<div id="id_page_name" style="text-align: center; font-size: x-large">Profile Page for {{ entry.first_name }} {{ entry.last_name }}</div>
+    <p style="text-align: center">
+
+    <img id="id_user_picture" src="{% url 'get_photo' user.id %}" alt="user picture" style="width: 200px; height: 200px">
+
+
+    </p>
+
+    <div>
+    <input id="id_user_bio" style="width: 400px; height: 50px; font-size: large; font-weight: bold" disabled value="{{ entry.bio }}" name="bio_input"><br><br>
+    </div>
+
+        </form>
+
+
+            {% if user in master.followers.all %}
+    <form class="follow/unfollow" action="{% url 'unfollow' user.id %}" method="POST">
+        <input id="id_unfollow" type="submit" value="Unfollow" style="width: 200px;">
+        {% csrf_token %}
+      </form>
+            {% endif %}
+
+    {% if user not in master.followers.all %}
+    <form class="follow/unfollow" action="{% url 'follow' user.id %}" method="POST">
+         <input id="id_follow" type="submit" value="Follow" style="width: 200px;">
+        {% csrf_token %}
+      </form>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

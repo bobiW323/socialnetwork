@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/static/socialnetwork/login.css">
+</head>
+<body>
+<div id="id_header_div">
+    <div id="id_site_name">Social Network</div>
+    <a id="id_register_link" href="{% url 'register' %}">register</a>
+</div>
+
+<div id="id_page_name">Login</div>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <button id="id_login_button" type="submit">Log in</button>
+</form>
+
+</body>
+</html>

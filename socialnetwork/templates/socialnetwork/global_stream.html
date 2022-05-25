@@ -1,0 +1,37 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block content %}
+
+<div id="id_page_name" >Global Stream</div><br>
+    <form method="POST" action="{% url 'global_stream' %}">
+    {% csrf_token %}
+        <form method="POST" action="{% url 'get-global' %}">
+            {% csrf_token %}
+    <label for="id_post_input_text">New Post:</label>
+    <input id="id_post_input_text" style="width: 280px; height: 30px; font-size: large" name="post">
+    <button id="id_post_button" style="width: 70px; height: 40px; border-radius: 10px; background-color: lightskyblue">Submit</button>
+
+            <br><br><br>
+{#            {% for item in items %}#}
+{#    <div id="id_post_{{item.id}}">#}
+{#    <div id="id_post_div_{{item.id}}" style="text-align: left">#}
+{#        <i>Post by </i>#}
+{#        <a id="id_post_profile_{{item.id}}"  href="{% url 'view_profile' item.user.id %}">{{ item.user.first_name }} {{ item.user.last_name }}</a>--#}
+{#        <span id="id_post_text_{{item.id}}">{{ item.text }}</span>--#}
+{#        <span id="id_post_date_time_{{item.id}}" style="font-family: Arial">{{ item.timestamp }}</span>#}
+{#        </div>#}
+{#        <br>#}
+{#        <label for="id_comment_input_text_{{item.id}}">Comment:</label>#}
+{#        <input id="id_comment_input_text_{{item.id}}" style="width: 200px; height: 30px; font-size: large" name="comment">#}
+{#        <button id="id_comment_button_{{item.id}}" style="width: 70px; height: 40px; border-radius: 10px; background-color: lightskyblue">Submit</button>#}
+{#</div>#}
+{#            {% endfor %}#}
+
+            </form>
+    </form>
+    <div id="posts-goes-here"></div>
+<script>
+window.onload = getGlobal;
+window.setInterval(getGlobal, 5000);
+</script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block content %}
+<div id="id_page_name" >Follower Stream</div><br>
+{#    <form method="POST" action="{% url 'follower_stream' %}">#}
+{#    {% csrf_token %}#}
+{#    <br><br>#}
+{#    {% for item in items %}#}
+{#    <div id="id_post_div_{{ item.id }}" style="text-align: left">#}
+{#        <i>Post by </i>#}
+{#        <a id="id_post_profile_{{ item.id }}"  href="{% url 'view_profile' item.user.id %}">{{ item.user.first_name }} {{ item.user.last_name }}</a>--#}
+{#        <span id="id_post_text_{{ item.id }}">{{ item.text }}</span>--#}
+{#        <span id="id_post_date_time_{{ item.id }}" style="font-family: Arial">{{ item.timestamp }}</span>#}
+{#        </div><br>#}
+{##}
+{#    {% endfor %}#}
+{#    </form>#}
+<div id="posts-goes-here"></div>
+    <script>
+        window.onload = getFollower;
+        window.setInterval(getFollower, 5000);
+    </script>
+{% endblock %}

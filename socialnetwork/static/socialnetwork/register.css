@@ -1,0 +1,48 @@
+#id_header_div{
+    background-color: cornflowerblue;
+    width: border-box;
+    margin-bottom: 20px;
+    height: 100px;
+}
+#id_site_name{
+    font-size: xx-large;
+    text-align: left;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+#id_login_link{
+    font-size: medium;
+    color: white;
+    text-decoration-line: underline;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+#id_page_name{
+    text-align: center;
+    font-size: x-large;
+    color: black;
+}
+#id_register_button{
+    text-align: center;
+    color: black;
+    background-color: white;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+	font-size: 20px;
+    border-radius: 10px;
+}
+#id_register_button:hover{
+    background-color: lightskyblue;
+}
+
+#id_username, #id_password, #id_confirm_password, #id_email, #id_first_name, #id_last_name{
+    font-size: large;
+}
+label{
+    font-size: large;
+}
